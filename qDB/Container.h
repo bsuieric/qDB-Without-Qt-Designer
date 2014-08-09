@@ -2,11 +2,8 @@
 #define CONTAINER_H
 
 #include <iostream>
-using std::ostream;
 
-template <class T> class Container; //dichiarazione incompleta di classe
 
-template <class T> ostream& operator<<(ostream&, const Container<T>&);
 
 //classe Container
 template<class T>
@@ -14,7 +11,6 @@ class Container{
     // dichiarazione di amicizia
     friend class Iterator;
     friend class const_Iterator;
-    friend ostream& operator<<(ostream&, const Container<T>&);
 private:
     //classe ListItem
     class ListItem{
@@ -381,22 +377,6 @@ const T &Container<T>::operator[](const const_Iterator& it)const{
 template<class T>
 T& Container<T>::const_Iterator::operator*()const{
     return punt->info;
-}
-
-
-/*
- *******************************
- Operatore di output
- *******************************
-*/
- //overloading operatore <<
-template<class T>
-ostream operator <<(ostream &os,const Container<T>& c){
-    typename Container<T>::const_Iterator it=c.begin();
-    for(; it != c.end(); ++it){
-        os<<c[it]<<"\n";
-    }
-    return os;
 }
 
 #endif // CONTAINER_H

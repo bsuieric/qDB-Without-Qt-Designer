@@ -9,9 +9,6 @@
 
 class ElencoTornei
 {
-
-    //Ridefinizione dell'operatore di output
-    friend ostream& operator<<(ostream&, const ElencoTornei&);
 public:
     class SmartPtr{
     private:

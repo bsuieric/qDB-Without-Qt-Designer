@@ -172,15 +172,5 @@ string ElencoTornei::nomiSalvati(const ElencoTornei& e){
      }
 }
 
-ostream& operator<<(ostream& os, const ElencoTornei& e){
-  Container<ElencoTornei::SmartPtr>::Iterator it=e.elenco->begin();
-  for(; it!=e.elenco->end(); ++it){
-      ElencoTornei::SmartPtr* t=static_cast<ElencoTornei::SmartPtr*>(&(it.getPunt()->info));
-      if(t){
-          os<<t->getTorneo()->toString();
-      }
-  }
-  return os;
-}
 
 

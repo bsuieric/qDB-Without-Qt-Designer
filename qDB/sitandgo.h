@@ -34,7 +34,5 @@ public:
     //operatore di uguaglianza
     bool operator==(const SitAndGo&)const;
 
-    virtual string toString()const;
-
 };
 #endif // SITANDGO_H

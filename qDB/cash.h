@@ -38,8 +38,6 @@ public:
     //operator ==
     bool operator ==(const Cash&)const;
 
-    virtual string toString()const;
-
     virtual Tornei* clona()const;
 };
 

@@ -53,13 +53,5 @@ public:
     //Operatore di uguaglianza virtuale
     virtual bool operator==(const Tornei&) const;
 
-    //virtual string toString()const;
-
-    virtual string toString()const;
-
-
-
-
 };
- ostream& operator<<(ostream& os, const Tornei& t);
 #endif // TORNEI_H
