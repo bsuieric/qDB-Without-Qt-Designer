@@ -5,38 +5,40 @@ MainWindow::MainWindow(QWidget *parent) :
     elenco(new ElencoTornei)
 {
     centralWidget = new QWidget(this);
-    layoutWidget = new QWidget(centralWidget);
-    verticalLayout = new QVBoxLayout(layoutWidget);
-    sceltaTorneo = new QComboBox(layoutWidget);
-    NomeLabel = new QLabel(layoutWidget);
-    horizontalLayoutNome = new QHBoxLayout();
-    NomeLineEdit = new QLineEdit(layoutWidget);
-    horizontalLayoutNumG = new QHBoxLayout();
-    NumGLabel = new QLabel(layoutWidget);
-    NumGLineEdit = new QLineEdit(layoutWidget);
-    ImportoLabel = new QLabel(layoutWidget);
-    ImportoLineEdit = new QLineEdit(layoutWidget);
-    horizontalLayoutBuyIn = new QHBoxLayout();
-    horizontalLayoutImporto = new QHBoxLayout();
-    BuyInLabel = new QLabel(layoutWidget);
-    BuyInLineEdit = new QLineEdit(layoutWidget);
-    aggiungiTorneo = new QPushButton(layoutWidget);
     groupBoxRicerca = new QGroupBox(centralWidget);
     cercaButton = new QPushButton(groupBoxRicerca);
-    layoutWidget1 = new QWidget(groupBoxRicerca);
-    horizontalLayout = new QHBoxLayout(layoutWidget1);
-    labelNomeRicerca = new QLabel(layoutWidget1);
-    lineEditRicerca = new QLineEdit(layoutWidget1);
+    layoutWidget = new QWidget(groupBoxRicerca);
+    horizontalLayout = new QHBoxLayout(layoutWidget);
+    labelNomeRicerca = new QLabel(layoutWidget);
+    lineEditRicerca = new QLineEdit(layoutWidget);
     labelInfo = new QLabel(groupBoxRicerca);
     torneiListWidget = new QListWidget(groupBoxRicerca);
     label = new QLabel(groupBoxRicerca);
     groupBoxInformazioni = new QGroupBox(centralWidget);
     labelAddizionale = new QLabel(groupBoxInformazioni);
     labelInfoAdd = new QLabel(groupBoxInformazioni);
+    groupBoxAggiungi = new QGroupBox(centralWidget);
+    layoutWidget1 = new QWidget(groupBoxAggiungi);
+    verticalLayout = new QVBoxLayout(layoutWidget1);
+    sceltaTorneo = new QComboBox(layoutWidget1);
+    horizontalLayoutNome = new QHBoxLayout();
+    NomeLabel = new QLabel(layoutWidget1);
+    NomeLineEdit = new QLineEdit(layoutWidget1);
+    horizontalLayoutNumG = new QHBoxLayout();
+    NumGLabel = new QLabel(layoutWidget1);
+    NumGLineEdit = new QLineEdit(layoutWidget1);
+    horizontalLayoutImporto = new QHBoxLayout();
+    ImportoLabel = new QLabel(layoutWidget1);
+    ImportoLineEdit = new QLineEdit(layoutWidget1);
+    horizontalLayoutBuyIn = new QHBoxLayout();
+    BuyInLabel = new QLabel(layoutWidget1);
+    BuyInLineEdit = new QLineEdit(layoutWidget1);
+    aggiungiTorneo = new QPushButton(layoutWidget1);
     menuBar = new QMenuBar(this);
     menuTornei_di_Poker = new QMenu(menuBar);
     mainToolBar = new QToolBar(this);
-    statusBar= new QStatusBar(this);
+    statusBar = new QStatusBar(this);
+
 
     setupView();
     loadTorneiInfo();
@@ -48,10 +50,43 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::setupView(){
-    resize(721, 512);
+    resize(709, 535);
+    setToolButtonStyle(Qt::ToolButtonTextOnly);
 
-    layoutWidget->setGeometry(QRect(30, 70, 277, 286));
+    groupBoxRicerca->setGeometry(QRect(370, 10, 271, 371));
+    cercaButton->setGeometry(QRect(40, 60, 181, 27));
+    layoutWidget->setGeometry(QRect(10, 30, 247, 29));
 
+    horizontalLayout->setSpacing(6);
+    horizontalLayout->setContentsMargins(11, 11, 11, 11);
+    horizontalLayout->setContentsMargins(0, 0, 0, 0);
+    horizontalLayout->addWidget(labelNomeRicerca);
+    horizontalLayout->addWidget(lineEditRicerca);
+
+    labelInfo->setEnabled(true);
+    labelInfo->setGeometry(QRect(20, 100, 231, 71));
+    QFont font;
+    font.setFamily(QString::fromUtf8("Abyssinica SIL"));
+    font.setItalic(true);
+    labelInfo->setFont(font);
+    labelInfo->setScaledContents(false);
+    labelInfo->setWordWrap(true);
+
+    torneiListWidget->setGeometry(QRect(10, 220, 256, 141));
+    label->setGeometry(QRect(10, 200, 101, 17));
+
+    cercaButton->raise();
+    layoutWidget->raise();
+    labelInfo->raise();
+    torneiListWidget->raise();
+    label->raise();
+    layoutWidget->raise();
+
+    groupBoxInformazioni->setGeometry(QRect(10, 400, 381, 41));
+    labelAddizionale->setGeometry(QRect(310, 20, 67, 17));
+    labelInfoAdd->setGeometry(QRect(0, 20, 311, 17));
+    groupBoxAggiungi->setGeometry(QRect(10, 10, 321, 361));
+    layoutWidget1->setGeometry(QRect(20, 40, 277, 286));
     verticalLayout->setSpacing(6);
     verticalLayout->setContentsMargins(11, 11, 11, 11);
     verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -82,45 +117,19 @@ void MainWindow::setupView(){
     verticalLayout->addLayout(horizontalLayoutBuyIn);
     verticalLayout->addWidget(aggiungiTorneo);
 
-    groupBoxRicerca->setGeometry(QRect(400, 20, 271, 371));
-
-    cercaButton->setGeometry(QRect(40, 60, 181, 27));
-
-    layoutWidget1->setGeometry(QRect(10, 30, 247, 29));
-
-    horizontalLayout->setSpacing(6);
-    horizontalLayout->setContentsMargins(11, 11, 11, 11);
-    horizontalLayout->setContentsMargins(0, 0, 0, 0);
-    horizontalLayout->addWidget(labelNomeRicerca);
-    horizontalLayout->addWidget(lineEditRicerca);
-
-    labelInfo->setEnabled(true);
-    labelInfo->setGeometry(QRect(20, 100, 231, 71));
-    QFont font;
-    font.setFamily(QString::fromUtf8("Abyssinica SIL"));
-    font.setItalic(true);
-    labelInfo->setFont(font);
-    labelInfo->setScaledContents(false);
-    labelInfo->setWordWrap(true);
-
-    torneiListWidget->setGeometry(QRect(10, 220, 256, 141));
-
-    label->setGeometry(QRect(10, 200, 101, 17));
-
-    groupBoxInformazioni->setGeometry(QRect(10, 400, 381, 41));
-    labelAddizionale->setGeometry(QRect(310, 20, 67, 17));
-    labelInfoAdd->setGeometry(QRect(0, 20, 311, 17));
-
+    layoutWidget->raise();
+    layoutWidget->raise();
     setCentralWidget(centralWidget);
-    setMenuBar(menuBar);
-    setStatusBar(statusBar);
 
-    menuBar->setGeometry(QRect(0, 0, 721, 25));
+    menuBar->setGeometry(QRect(0, 0, 709, 25));
+    setMenuBar(menuBar);
     addToolBar(Qt::TopToolBarArea, mainToolBar);
+    setStatusBar(statusBar);
     menuBar->addAction(menuTornei_di_Poker->menuAction());
 }
 
 void MainWindow::loadTorneiInfo(){
+    setWindowTitle("qDataBase");
     labelAddizionale->setText(QString::number(elenco->getAddCash())+" EURO");
     statusBar->showMessage("Programmazione ad Oggetti 2013/2014 @ UniPD - Suierica Bogdan");
 
@@ -132,6 +141,7 @@ void MainWindow::loadTorneiInfo(){
     BuyInLabel->setText("BuyIn");
     aggiungiTorneo->setText("Aggiungi");
 
+    groupBoxAggiungi->setTitle("Spazio Aggiungi Tornei");
     groupBoxInformazioni->setTitle("Informazioni");
     labelInfoAdd->setText("Per i tornei Cash c'e' un'addizionale unica di :");
 

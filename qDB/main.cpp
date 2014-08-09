@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "elencotornei.h"
+#include"searchwindow.h"
 
 
 #include <iostream>

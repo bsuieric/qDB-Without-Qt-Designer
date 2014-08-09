@@ -46,7 +46,20 @@ private slots:
 
 private:
     QWidget *centralWidget;
+    QGroupBox *groupBoxRicerca;
+    QPushButton *cercaButton;
     QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QLabel *labelNomeRicerca;
+    QLineEdit *lineEditRicerca;
+    QLabel *labelInfo;
+    QListWidget *torneiListWidget;
+    QLabel *label;
+    QGroupBox *groupBoxInformazioni;
+    QLabel *labelAddizionale;
+    QLabel *labelInfoAdd;
+    QGroupBox *groupBoxAggiungi;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QComboBox *sceltaTorneo;
     QHBoxLayout *horizontalLayoutNome;
@@ -62,18 +75,6 @@ private:
     QLabel *BuyInLabel;
     QLineEdit *BuyInLineEdit;
     QPushButton *aggiungiTorneo;
-    QGroupBox *groupBoxRicerca;
-    QPushButton *cercaButton;
-    QWidget *layoutWidget1;
-    QHBoxLayout *horizontalLayout;
-    QLabel *labelNomeRicerca;
-    QLineEdit *lineEditRicerca;
-    QLabel *labelInfo;
-    QListWidget *torneiListWidget;
-    QLabel *label;
-    QGroupBox *groupBoxInformazioni;
-    QLabel *labelAddizionale;
-    QLabel *labelInfoAdd;
     QMenuBar *menuBar;
     QMenu *menuTornei_di_Poker;
     QToolBar *mainToolBar;

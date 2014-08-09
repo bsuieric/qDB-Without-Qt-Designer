@@ -8,6 +8,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QGroupBox>
 
 #include <elencotornei.h>
 
@@ -40,7 +41,7 @@ signals:
     void torneoRemove(QString);
 
 private:
-    QLabel *searchTipoLabel;
+    QGroupBox *groupBox;
     QLabel *searchTotaleLabel;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayoutTutto;
@@ -61,6 +62,7 @@ private:
     QLineEdit *searchBuyInEdit;
     QPushButton *editBuyInButton;
     QPushButton *searchDeleteButton;
+    QLabel *searchTipoLabel;
 
     ElencoTornei *el;
 
@@ -71,6 +73,8 @@ private:
     void resetCampi();
 
     void setCampiRicerca();
+
+    void loadTorneiInfo();
 
 };
 

@@ -3,9 +3,9 @@
 SearchWindow::SearchWindow(QWidget *parent) :
     QDialog(parent)
 {
-    searchTipoLabel = new QLabel(this);
-    searchTotaleLabel = new QLabel(this);
-    layoutWidget = new QWidget(this);
+    groupBox = new QGroupBox(this);
+    searchTotaleLabel = new QLabel(groupBox);
+    layoutWidget = new QWidget(groupBox);
     verticalLayoutTutto = new QVBoxLayout(layoutWidget);
     horizontalLayoutNome = new QHBoxLayout();
     searchLabelNome = new QLabel(layoutWidget);
@@ -24,6 +24,10 @@ SearchWindow::SearchWindow(QWidget *parent) :
     searchBuyInEdit = new QLineEdit(layoutWidget);
     editBuyInButton = new QPushButton(layoutWidget);
     searchDeleteButton = new QPushButton(layoutWidget);
+    searchTipoLabel = new QLabel(groupBox);
+
+    setupView();
+    loadTorneiInfo();
 
     connect(searchDeleteButton,SIGNAL(clicked()),this,SLOT(on_searchDeleteButton_clicked()));
     connect(editNomeButton,SIGNAL(clicked()),this,SLOT(on_editNomeButton_clicked()));
@@ -37,14 +41,14 @@ SearchWindow::~SearchWindow()
 }
 
 void SearchWindow::setupView(){
-    resize(329, 334);
-    layoutWidget->setGeometry(QRect(10, 100, 309, 169));
+    resize(367, 358);
 
-    searchTipoLabel->setGeometry(QRect(100, 20, 151, 17));
+    setModal(true);
+    QDialog::reject();//con il tasto esc esco dalla finestra
 
-    searchTotaleLabel->setGeometry(QRect(40, 50, 261, 17));
-
-
+    groupBox->setGeometry(QRect(10, 10, 331, 331));
+    searchTotaleLabel->setGeometry(QRect(40, 80, 261, 17));
+    layoutWidget->setGeometry(QRect(10, 130, 309, 169));
     verticalLayoutTutto->setContentsMargins(0, 0, 0, 0);
 
     horizontalLayoutNome->addWidget(searchLabelNome);
@@ -71,6 +75,8 @@ void SearchWindow::setupView(){
 
     verticalLayoutTutto->addLayout(horizontalLayoutBuy);
     verticalLayoutTutto->addWidget(searchDeleteButton);
+
+    searchTipoLabel->setGeometry(QRect(100, 50, 151, 17));
 
 }
 
@@ -282,4 +288,20 @@ void SearchWindow::on_editBuyInButton_clicked()
 
 void SearchWindow::setNomeTorneo(QString reset){
     nomeTorneo=reset;
+}
+
+void SearchWindow::loadTorneiInfo(){
+    setWindowTitle("Dettagli Torneo");
+    groupBox->setTitle("Informazioni");
+    searchTipoLabel->setText("Tipo : ");
+    searchTotaleLabel->setText("Totale da pagare : ");
+    searchLabelNome->setText("Nome");
+    searchLabelGioc->setText("Giocatori");
+    searchImportoLabel->setText("Importo");
+    searchBuyInLabel->setText("BuyIn");
+    searchDeleteButton->setText("Elimina");
+    editNomeButton->setText("Modifica");
+    editGiocButton->setText("Modifica");
+    editImportoButton->setText("Modifica");
+    editBuyInButton->setText("Modifica");
 }
