@@ -148,7 +148,7 @@ void MainWindow::loadTorneiInfo(){
     groupBoxRicerca->setTitle("Spazio Ricerca");
     labelNomeRicerca->setText("Nome");
     cercaButton->setText("Cerca");
-    labelInfo->setText("Attraverso la ricerca o il doppio click sulla lista e' possibile eliminare o modificare i dati del torneo.");
+    labelInfo->setText("Attraverso la ricerca o il doppio click sulla lista e' possibile modificare i dati del torneo o eliminare il torneo.");
     label->setText("Lista Tornei");
 }
 
