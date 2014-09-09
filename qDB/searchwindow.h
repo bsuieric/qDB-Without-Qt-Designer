@@ -38,6 +38,7 @@ private slots:
 
 signals:
     void nameChanged(QString,QString);
+
     void torneoRemove(QString);
 
 private:

@@ -28,7 +28,7 @@ public:
     void setupView();
 
 signals:
-    void aggiuntoNuovoTorneo();
+    //void aggiuntoNuovoTorneo();
 
 private slots:
 
@@ -75,9 +75,6 @@ private:
     QLabel *BuyInLabel;
     QLineEdit *BuyInLineEdit;
     QPushButton *aggiungiTorneo;
-    QMenuBar *menuBar;
-    QMenu *menuTornei_di_Poker;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     ElencoTornei* elenco;

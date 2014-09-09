@@ -34,9 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
     BuyInLabel = new QLabel(layoutWidget1);
     BuyInLineEdit = new QLineEdit(layoutWidget1);
     aggiungiTorneo = new QPushButton(layoutWidget1);
-    menuBar = new QMenuBar(this);
-    menuTornei_di_Poker = new QMenu(menuBar);
-    mainToolBar = new QToolBar(this);
     statusBar = new QStatusBar(this);
 
 
@@ -121,11 +118,7 @@ void MainWindow::setupView(){
     layoutWidget->raise();
     setCentralWidget(centralWidget);
 
-    menuBar->setGeometry(QRect(0, 0, 709, 25));
-    setMenuBar(menuBar);
-    addToolBar(Qt::TopToolBarArea, mainToolBar);
     setStatusBar(statusBar);
-    menuBar->addAction(menuTornei_di_Poker->menuAction());
 }
 
 void MainWindow::loadTorneiInfo(){
@@ -191,7 +184,6 @@ bool MainWindow::addTorneo(){
         info.setText("Torneo creato e salvato con successo!");
         info.exec();
         resetCampiDati();
-        emit aggiuntoNuovoTorneo();
         return true;
         }
     }
@@ -232,11 +224,10 @@ bool MainWindow::addTorneo(){
             info.setText("Torneo creato e salvato con successo!");
             info.exec();
             resetCampiDati();
-            emit aggiuntoNuovoTorneo();
             return true;
             }
         }
-
+    return false;
 }
 
 void MainWindow::on_aggiungiTorneo_clicked()
